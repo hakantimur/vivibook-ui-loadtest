@@ -32,7 +32,7 @@ function uniquePrompt(i) {
 }
 
 async function runOneUser(i) {
-  const browser = await chromium.launch({ headless: false, slowMo: 100 });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
   const log = (m) => console.log(`[user ${i}] ${m}`);
@@ -118,3 +118,4 @@ async function main() {
 }
 
 main();
+
