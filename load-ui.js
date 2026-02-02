@@ -112,10 +112,20 @@ async function main() {
   const start = Date.now();
 
   // 5 kullanıcıyı aynı anda başlatıyoruz
-  await Promise.all(Array.from({ length: USERS }, (_, i) => runOneUser(i)));
+const tasks = [];
+
+for (let i = 0; i < USERS; i++) {
+  // Her kullanıcı 5 saniye arayla başlasın
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
+  tasks.push(runOneUser(i));
+}
+
+await Promise.all(tasks);
 
   console.log(`Finished in ${(Date.now() - start) / 1000}s`);
 }
 
 main();
+
 
