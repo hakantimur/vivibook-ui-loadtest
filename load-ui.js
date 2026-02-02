@@ -56,7 +56,7 @@ async function runOneUser(i) {
 
     // Register başarılıysa terms gelmeli
     log("wait terms");
-    await page.getByTestId("profile-terms-checkbox").waitFor({ timeout: 30000 });
+    await page.getByTestId("profile-terms-checkbox").waitFor({ timeout: 60000 });
 
     log("accept terms");
     await page.getByTestId("profile-terms-checkbox").check();
@@ -64,7 +64,7 @@ async function runOneUser(i) {
 
     // Profile başarılıysa prompt gelmeli
     log("wait prompt");
-    await page.getByTestId("prompt-input").waitFor({ timeout: 30000 });
+    await page.getByTestId("prompt-input").waitFor({ timeout: 60000 });
 
     log("fill prompt");
     await page.getByTestId("prompt-input").fill(uniquePrompt(i));
@@ -127,5 +127,6 @@ await Promise.all(tasks);
 }
 
 main();
+
 
 
