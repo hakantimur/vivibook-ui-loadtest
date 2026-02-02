@@ -72,7 +72,7 @@ async function runOneUser(i) {
     log("set language/type/category");
     await page.getByTestId("language-button").click();
     await page.getByTestId("language-option-en").click();
-    await page.getByRole("button", { name: "Tür" }).click();
+    await page.getByRole("button", { name: "Genre" }).click();
     await page.getByTestId("category-option-c3c5df6a-dd4a-4d15-9795-62005ac4ffd6").click();
 
     log("generate");
@@ -127,6 +127,7 @@ await Promise.all(tasks);
 }
 
 main();
+
 
 
 
