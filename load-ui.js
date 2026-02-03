@@ -47,8 +47,8 @@ async function phase1_registerToPrompt(i) {
 
     const email = uniqueEmail(i);
     log(`fill register: ${email}`);
-    await page.getByTestId("register-first-name").fill("test");
-    await page.getByTestId("register-last-name").fill("hakan");
+    await page.getByTestId("register-first-name").fill("hakan");
+    await page.getByTestId("register-last-name").fill("timur");
     await page.getByTestId("register-email").fill(email);
     await page.getByTestId("register-password").fill("Ht**41324132");
 
@@ -120,7 +120,7 @@ async function main() {
   const phase1Tasks = [];
   for (let i = 0; i < USERS; i++) {
     // Her kullanıcı 5 saniye arayla başlasın (senin mevcut davranışın)
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     phase1Tasks.push(phase1_registerToPrompt(i));
   }
 
@@ -154,3 +154,4 @@ async function main() {
 }
 
 main();
+
