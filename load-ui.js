@@ -109,7 +109,7 @@ async function phase2_generate(session) {
 }
 
 async function main() {
-  const USERS = 15;
+  const USERS = 10;
   console.log(`Starting ${USERS} users...`);
 
   const start = Date.now();
@@ -120,7 +120,7 @@ async function main() {
   const phase1Tasks = [];
   for (let i = 0; i < USERS; i++) {
     // Her kullanıcı 1 saniye arayla başlasın (senin mevcut davranışın)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     phase1Tasks.push(phase1_registerToPrompt(i));
   }
 
@@ -154,6 +154,7 @@ async function main() {
 }
 
 main();
+
 
 
 
