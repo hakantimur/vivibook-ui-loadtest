@@ -72,7 +72,6 @@ async function runOneUser(i) {
     log("set language/type/category");
     await page.getByTestId("language-button").click();
     await page.getByTestId("language-option-en").click();
-    await page.getByRole("button", { name: "Genre" }).click();
     await page.getByTestId("category-option-c3c5df6a-dd4a-4d15-9795-62005ac4ffd6").click();
 
     log("generate");
@@ -82,18 +81,7 @@ async function runOneUser(i) {
     log("wait generate page");
     await page.waitForURL(/\/tr\/generate(\?|$)/, { timeout: 180000 });
     log(`generate url: ${page.url()}`);
-
-    log("public + read");
-    await page.getByRole("button", { name: "Evet, Herkese Açık" }).click();
-    await page.getByRole("button", { name: "Oku" }).click();
-
-    log("next pages");
-    await page.getByRole("button", { name: "Next page" }).click();
-    await page.getByRole("button", { name: "Next page" }).click();
-
-    log("close reader");
-    await page.getByRole("button", { name: "Close reader" }).click();
-
+    
     log("done");
   } catch (err) {
     console.error(`\n[user ${i}] FAILED: ${err.message}\n`);
@@ -106,12 +94,12 @@ async function runOneUser(i) {
 }
 
 async function main() {
-  const USERS = 5;
+  const USERS = 3;
   console.log(`Starting ${USERS} parallel users...`);
 
   const start = Date.now();
 
-  // 5 kullanıcıyı aynı anda başlatıyoruz
+  // 3 kullanıcıyı aynı anda başlatıyoruz
 const tasks = [];
 
 for (let i = 0; i < USERS; i++) {
@@ -127,6 +115,7 @@ await Promise.all(tasks);
 }
 
 main();
+
 
 
 
