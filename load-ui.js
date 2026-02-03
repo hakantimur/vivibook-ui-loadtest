@@ -120,7 +120,7 @@ async function main() {
   const phase1Tasks = [];
   for (let i = 0; i < USERS; i++) {
     // Her kullanıcı 5 saniye arayla başlasın (senin mevcut davranışın)
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     phase1Tasks.push(phase1_registerToPrompt(i));
   }
 
@@ -154,4 +154,5 @@ async function main() {
 }
 
 main();
+
 
