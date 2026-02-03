@@ -69,11 +69,6 @@ async function runOneUser(i) {
     log("fill prompt");
     await page.getByTestId("prompt-input").fill(uniquePrompt(i));
 
-    log("set language/type/category");
-    await page.getByTestId("language-button").click();
-    await page.getByTestId("language-option-en").click();
-    await page.getByTestId("category-option-c3c5df6a-dd4a-4d15-9795-62005ac4ffd6").click();
-
     log("generate");
     await page.getByTestId("generate-button").click();
 
@@ -94,12 +89,12 @@ async function runOneUser(i) {
 }
 
 async function main() {
-  const USERS = 3;
+  const USERS = 2;
   console.log(`Starting ${USERS} parallel users...`);
 
   const start = Date.now();
 
-  // 3 kullanıcıyı aynı anda başlatıyoruz
+  // 2 kullanıcıyı aynı anda başlatıyoruz
 const tasks = [];
 
 for (let i = 0; i < USERS; i++) {
@@ -115,6 +110,7 @@ await Promise.all(tasks);
 }
 
 main();
+
 
 
 
