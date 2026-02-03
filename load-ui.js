@@ -109,7 +109,7 @@ async function phase2_generate(session) {
 }
 
 async function main() {
-  const USERS = 20;
+  const USERS = 15;
   console.log(`Starting ${USERS} users...`);
 
   const start = Date.now();
@@ -154,6 +154,7 @@ async function main() {
 }
 
 main();
+
 
 
 
